@@ -60,7 +60,8 @@ pip install -r requirements.txt
 sudo ln -s "$(pwd)/target/release/archrepro-engine" /usr/local/bin/archrepro-engine
 sudo ln -s "$(pwd)/src/cli/archrepro" /usr/local/bin/archrepro
 ```
-See DEVELOPING.md for full developer setup.
+See DEVELOPING.md for full developer setup, code hygiene, and commenting standards.
+See ROADMAP.md for planned milestones and priorities.
 
 Quick Start
 
