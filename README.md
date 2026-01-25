@@ -37,47 +37,57 @@ Core Features
 Installation
 
 From AUR (recommended once packaged)
-yay -S archrepro
+```yay -S archrepro
 # or paru -S archrepro
-
+```
 From source (current development method)
+```
 git clone https://github.com/yourusername/archrepro.git
 cd archrepro
-
-# Build Rust components
+```
+## Build Rust components
+```
 cargo build --release
-
-# Set up Python CLI environment
+```
+## Set up Python CLI environment
+```
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-
-# Optional: symlink CLI for easy access
+```
+## Optional: symlink CLI for easy access
+```
 sudo ln -s "$(pwd)/target/release/archrepro-engine" /usr/local/bin/archrepro-engine
 sudo ln -s "$(pwd)/src/cli/archrepro" /usr/local/bin/archrepro
-
+```
 See DEVELOPING.md for full developer setup.
 
 Quick Start
 
-# Generate a manifest capturing your current system state (best-effort)
+## Generate a manifest capturing your current system state (best-effort)
+```
 archrepro init --name stable-2026.01
-
-# Edit manifest (highly recommended)
+```
+## Edit manifest (highly recommended)
+```
 vim archrepro/stable-2026.01.repro.yaml
-
-# Apply configuration (idempotent)
+```
+## Apply configuration (idempotent)
+```
 sudo archrepro apply stable-2026.01
-
-# Create a rollback-capable snapshot
+```
+## Create a rollback-capable snapshot
+```
 sudo archrepro snapshot create stable-2026.01 --backend btrfs
-
-# Check for drift
+```
+## Check for drift
+```
 archrepro diff stable-2026.01
-
-# Verify reproducibility of key packages
+```
+## Verify reproducibility of key packages
+```
 archrepro verify --packages linux,mesa,nvidia --rebuild --verbose
-
+```
 Minimal example manifest (my-laptop.repro.yaml):
 apiVersion: archrepro/v1
 name: workstation-2026
