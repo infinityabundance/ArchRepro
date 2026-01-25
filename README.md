@@ -5,7 +5,9 @@
 [![Rust](https://img.shields.io/badge/Rust-000000?logo=rust&logoColor=white)](https://www.rust-lang.org/)
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 
-ArchRepro is a lightweight, optional reproducibility layer for Arch Linux that brings declarative system configuration, deterministic package verification, lightweight snapshots, and drift detection — while fully respecting Arch's rolling-release model, pacman ecosystem, AUR compatibility, and minimalist philosophy.
+ArchRepro is an optional, lightweight, Arch-native reproducibility layer for Arch Linux that makes rolling-release systems verifiable and repeatable — without replacing pacman, AUR, or the Arch Way.
+
+Allows declarative system configuration, deterministic package verification, lightweight snapshots, and drift detection — while fully respecting Arch's rolling-release model, pacman ecosystem, AUR compatibility, and minimalist philosophy.
 
 It is not a new distro or a replacement for pacman/makepkg. It is an enhancement layer you can adopt gradually (or ignore completely) until you need strong reproducibility guarantees.
 
