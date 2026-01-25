@@ -1,0 +1,28 @@
+apiVersion: archrepro/v1
+name: my-laptop-2026
+description: Daily driver with Hyprland & NVIDIA
+
+kernel:
+  package: linux-zen
+  version: ">=6.12"
+
+packages:
+  official:
+    - hyprland
+    - waybar
+    - firefox
+    - neovim
+  aur:
+    - visual-studio-code-bin: hash: sha256:...
+
+filesystem:
+  - path: /etc/hostname
+    content: arch-laptop
+  - path: /etc/locale.conf
+    content: LANG=en_US.UTF-8
+
+services:
+  enabled:
+    - NetworkManager
+    - systemd-resolved
+    - bluetooth
