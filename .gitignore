@@ -1,0 +1,76 @@
+# Rust
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.venv/
+venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Build artifacts
+*.deb
+*.rpm
+*.pkg.tar.*
+*.tar.gz
+*.tar.xz
+
+# Temporary files
+*.log
+*.tmp
+/tmp/
+
+# Snapshots (for testing)
+test_snapshots/
+*.btrfs
+*.img
+
+# Documentation builds
+docs/_build/
+docs/.buildinfo
+
+# Local configuration
+.env
+.local
+local.yaml
+local.repro.yaml
+
+# OS
+Thumbs.db
+.directory
