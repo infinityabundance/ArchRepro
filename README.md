@@ -38,60 +38,74 @@ Core Features
 
 Installation
 
-From AUR (recommended once packaged)
-```yay -S archrepro
+⚠️ **Note:** ArchRepro is not yet installable. The project is in the pre-alpha planning phase. The instructions below describe the **intended future installation process** once development is complete.
+
+From AUR (planned for v1.0)
+```bash
+yay -S archrepro
 # or paru -S archrepro
 ```
-From source (current development method)
-```
+
+From source (future development method - not yet functional)
+```bash
 git clone https://github.com/yourusername/archrepro.git
 cd archrepro
-```
-## Build Rust components
-```
+
+# Build Rust components (requires Cargo.toml - not yet created)
 cargo build --release
-```
-## Set up Python CLI environment
-```
+
+# Set up Python CLI environment (requires requirements.txt - not yet created)
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-```
-## Optional: symlink CLI for easy access
-```
+
+# Optional: symlink CLI for easy access
 sudo ln -s "$(pwd)/target/release/archrepro-engine" /usr/local/bin/archrepro-engine
 sudo ln -s "$(pwd)/src/cli/archrepro" /usr/local/bin/archrepro
 ```
+
+**Current Status:** See [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md) for what exists vs what's planned.
+
 See DEVELOPING.md for full developer setup, code hygiene, and commenting standards.
 See ROADMAP.md for planned milestones and priorities.
 
 Quick Start
 
-## Generate a manifest capturing your current system state (best-effort)
-```
+⚠️ **Note:** These commands are not yet implemented. This section describes the **intended future user experience**.
+
+Generate a manifest capturing your current system state (best-effort)
+```bash
 archrepro init --name stable-2026.01
 ```
-## Edit manifest (highly recommended)
-```
+
+Edit manifest (highly recommended)
+```bash
 vim archrepro/stable-2026.01.repro.yaml
 ```
-## Apply configuration (idempotent)
-```
+
+Apply configuration (idempotent)
+```bash
 sudo archrepro apply stable-2026.01
 ```
-## Create a rollback-capable snapshot
-```
+
+Create a rollback-capable snapshot
+```bash
 sudo archrepro snapshot create stable-2026.01 --backend btrfs
 ```
-## Check for drift
-```
+
+Check for drift
+```bash
 archrepro diff stable-2026.01
 ```
-## Verify reproducibility of key packages
-```
+
+Verify reproducibility of key packages
+```bash
 archrepro verify --packages linux,mesa,nvidia --rebuild --verbose
 ```
-Minimal example manifest (my-laptop.repro.yaml):
+
+**Example manifest:** See [my-laptop.repro.yaml](my-laptop.repro.yaml) for a working example.
+
+Minimal example manifest structure:
 apiVersion: archrepro/v1
 name: workstation-2026
 description: Hyprland + NVIDIA daily driver
@@ -134,20 +148,42 @@ Security & Trust Model
 - Optional signature verification of sources & final binaries (future)
 - No telemetry, no phoning home, no root-level daemons by default
 
-Project Status – January 2026
+Project Status – February 2026
 
-Achieved:
-- CLI skeleton (manifest parse/apply/diff)
-- Deterministic makepkg wrapper (Rust)
-- Basic snapshot support (btrfs + overlayfs)
-- Proof-of-concept AUR rebuild sandbox
+**Current Phase: Documentation & Planning (Pre-Alpha)**
+
+⚠️ **Important:** This project is currently in the documentation-first planning phase. While comprehensive documentation exists, **no implementation code has been written yet**.
+
+Completed:
+- ✅ Comprehensive project documentation and vision
+- ✅ Feature specifications and roadmap
+- ✅ Development standards and guidelines
+- ✅ Example manifest format definition
+- ✅ Architecture and design planning
+
+Current Work (Phase 0):
+- 🔨 Setting up project structure
+- 🔨 Creating build system configuration
+- 🔨 Implementing basic manifest parser
+
+Not Yet Started (See TODO.md for complete list):
+- ❌ CLI commands (`init`, `apply`, `diff`, `verify`, `snapshot`)
+- ❌ Deterministic build wrapper
+- ❌ Snapshot backends (btrfs, overlayfs, loop)
+- ❌ AUR rebuild system
+- ❌ Package verification system
+- ❌ Test suite
+- ❌ CI/CD pipelines
+
+**See [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md) for detailed gap analysis.**  
+**See [TODO.md](TODO.md) for complete task tracking.**
 
 Next milestones (2026):
-- v0.2 – full AUR dependency pinning + verification database integration
-- v0.3 – systemd generator for boot-time enforcement
-- v0.4 – GUI configurator (Tauri or iced-rs)
-- v0.5 – plugin system + first domain plugins (ML, gaming, server hardening)
-- v1.0 – official AUR submission + packaging
+- v0.1-alpha (Q1 2026) – Working manifest parser and basic package management
+- v0.2 (Q2 2026) – Deterministic builds and basic verification
+- v0.3 (Q3 2026) – Snapshot system and AUR support
+- v0.4 (Q4 2026) – GUI configurator and polish
+- v1.0 (2027) – Production-ready release with official AUR submission
 - Research paper (target: USENIX Security / OSDI / Linux.conf.au)
 - Book draft: Reproducible Arch – Deterministic Systems in a Rolling World
 

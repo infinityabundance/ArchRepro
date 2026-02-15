@@ -13,7 +13,8 @@ packages:
     - firefox
     - neovim
   aur:
-    - visual-studio-code-bin: hash: sha256:...
+    - name: visual-studio-code-bin
+      hash: sha256:placeholder_hash_here
 
 filesystem:
   - path: /etc/hostname
